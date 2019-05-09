@@ -73,37 +73,49 @@ public class TestMultiplication {
 
 		assertEquals(expectedANS, actualANS);
 	}
-/*
-	//@Test
-	public void testMultiplicationThreeNumberArrayList() {
-		// Test three number multiplications
-		// Here should init prepared answer
 
-		int expectedANS = 0;
+	@Test
+        public void testMultiplicationThreeNumberArrayList() {
+                // Test three number multiplications
 
-		// Here should new Factorization object with Mockito stub
-		// Here should ask stub object to act whatever we want
+                // Here should init prepared answer
+                int a = 3 ;
+                int b = 5 ;
+                int c = 2 ;
+                int expectedANS = 30 ;
 
-		Multiplication multiplication = new Multiplication();
-		int actualANS = multiplication.multiplicationWithFactorizationAbsolute(factorizationStub, expectedANS);
+                // Here should new Factorization object with Mockito stub
+                ArrayList<Integer> array = new ArrayList<Integer>(Arrays.asList(a, b, c)) ;
+                // Here should ask stub object to act whatever we want
+                Factorization factorizationStub = mock(Factorization.class) ;
+                when (factorizationStub.factorization(expectedANS)).thenReturn(array);
+                when(factorizationStub.factorizationRoot(anyInt(), anyBoolean())).thenReturn(-1);
 
-		assertEquals(expectedANS, actualANS);
-	}
+                Multiplication multiplication = new Multiplication();
+                int actualANS = multiplication.multiplicationWithFactorizationAbsolute(factorizationStub, expectedANS);
 
-	//@Test
-	public void testMultiplicationOneNumberArrayList() {
-		// Test one number multiplications, complete test coverage to 100%
-		// Here should init prepared answer
+                assertEquals(expectedANS, actualANS);
+        }
 
-		int expectedANS = 0;
+        @Test
+        public void testMultiplicationOneNumberArrayList() {
+                // Test one number multiplications, complete test coverage to 100%
 
-		// Here should new Factorization object with Mockito stub
-		// Here should ask stub object to act whatever we want
+                // Here should init prepared answer
+                int a = 3 ;
+                int expectedANS = -1 ;
+                // Here should new Factorization object with Mockito stub
+                ArrayList<Integer> array = new ArrayList<Integer>(Arrays.asList(a));
+                // Here should ask stub object to act whatever we want
+                Factorization factorizationStub = mock(Factorization.class) ;
+                when (factorizationStub.factorization(expectedANS)).thenReturn(array);
+                when(factorizationStub.factorizationRoot(anyInt(), anyBoolean())).thenReturn(-1);
 
-		Multiplication multiplication = new Multiplication();
-		int actualANS = multiplication.multiplicationWithFactorizationAbsolute(factorizationStub, expectedANS);
 
-		assertEquals(expectedANS, actualANS);
-	}
-*/
+                Multiplication multiplication = new Multiplication();
+                int actualANS = multiplication.multiplicationWithFactorizationAbsolute(factorizationStub, expectedANS);
+
+                assertEquals(expectedANS, actualANS);
+        }
+
 }
